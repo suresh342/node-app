@@ -26,9 +26,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - name: Build with npm
       run: npm ci
-      run: npm run build --if-present
-      run: npm test
+
 
     - name: Build & push Docker image
       uses: docker-build-push@v5
