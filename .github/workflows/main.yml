@@ -43,10 +43,10 @@ jobs:
 
         - name: Azure AKS Get Credentials
           run: az aks get-credentials --resource-group rg-aks-test --name aks-test-apps
-        - name: Set up kubectl
-          uses: azure/k8s-set-context@v1
-          with:
-             kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
+        #- name: Set up kubectl
+          #uses: azure/k8s-set-context@v1
+          #with:
+             #kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
 
         - name: Kubectl Apply
           run: |
