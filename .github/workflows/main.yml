@@ -31,13 +31,23 @@ jobs:
         steps:
         - name: Checkout code
           uses: actions/checkout@v2
-
-        - name: Set up kubectl
-          uses: azure/k8s-set-context@v1
+      #- name: Set up kubectl
+          #uses: azure/k8s-set-context@v1
+          #with:
+             #kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
+        - name: Azure CLI setup
+          uses: azure/CLI@v1
           with:
-             kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
+              azcliversion: 2.20.0
 
-        - name: Deploy to Kubernetes
+        - name: Azure AKS Get Credentials
+          run: az aks get-credentials --resource-group rg-aks-test --name aks-test-apps
+
+        - name: Kubectl Apply
           run: |
-           kubectl apply -f aks-deployment.yaml
+           kubectl apply -f aks-deployment.yml
+
+        #- name: Deploy to Kubernetes
+          #run: |
+           #kubectl apply -f aks-deployment.yaml
         
