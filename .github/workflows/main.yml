@@ -23,8 +23,8 @@ jobs:
             username: ${{ secrets.REGISTRY_USERNAME }}
             password: ${{ secrets.REGISTRY_PASSWORD }}
         - run: |
-            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
-            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
+            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/suresh342/node-app:${{ github.sha }}
+            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/suresh342/node-app:${{ github.sha }}
                
    deploy:
         runs-on: ubuntu-latest
@@ -42,7 +42,7 @@ jobs:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
         - name: Azure AKS Get Credentials
-          run: az aks get-credentials --resource-group rg-aks-test --name aks-test-apps
+          run: az aks get-credentials --resource-group test-rg --name aks-cluster
         #- name: Set up kubectl
           #uses: azure/k8s-set-context@v1
           #with:
