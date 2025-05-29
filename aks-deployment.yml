@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: test-image
-          image: acrtestaksapp.azurecr.io/suresh342/node-app:latest
+          image: acrtestaksapp.azurecr.io/suresh342/node-app:1918
           resources:
             requests:
               memory: 64Mi

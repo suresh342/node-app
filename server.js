@@ -9,7 +9,7 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 app.get('/', (req, res) => {
-  res.send('<h1 style="color:green;">Welcome to AKS private cluster !!</h1> \n');
+  res.send('<h1 style="color:red;">Welcome to Devops class New Batch !!</h1> \n');
 });
 
 app.listen(PORT, HOST);
