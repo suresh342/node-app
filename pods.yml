@@ -10,3 +10,12 @@ spec:
       image: kammana/nodeapp:v1
       ports:
         - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+   name: apps1 
+   namespace: ns-dev
+spec: 
+  matchlabels:
+  
